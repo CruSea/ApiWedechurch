@@ -11,21 +11,21 @@ class Favorite_eventSeeder extends Seeder
      *
      * @return void
      */
-  
        public function run()
     {
-    	 DB::table('favorite_events')->delete();
-         $imax = User::count();
-         $nmax = Event::count();
-
-          $faker = \Faker\Factory::create();
+       DB::table('favorite_events')->delete();
+         $imax = Event::count();
+         $nmax = User::count();
+         $faker = \Faker\Factory::create();
            for ($i = 0; $i < 10; $i++) {
-           DB::table('favorite_events')->create([
-             'user_id' => numberBetween($min = 1, $max = $imax),
-             'event_id' => numberBetween($min = 1, $max = $nmax)
-             ])
-       }
-       $this->command->info('favorite_events added');
+           DB::table('favorite_events')->insert([
+             'user_id' =>$faker->numberBetween($min = 1, $max = $imax),
+             'event_id'=>$faker->numberBetween($min = 1, $max = $nmax),
+             'created_at'=>$faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
+             'updated_at'=>$faker->dateTime($max = 'now', $timezone = date_default_timezone_get())
+             ]);
+            }
+        $this->command->info('favorite events added');
     }
 
 }

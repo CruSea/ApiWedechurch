@@ -26,7 +26,7 @@ class Event_categoryController extends Controller
 
     public function update(Request $request, Event_category   $event_category)
     {
-        $event_category;->update($request->all());
+        $event_category->update($request->all());
 
         return response()->json( $event_category, 200);
     }

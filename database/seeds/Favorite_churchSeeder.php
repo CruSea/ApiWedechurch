@@ -14,7 +14,7 @@ class Favorite_churchSeeder extends Seeder
      */
     public function run()
     {
-    	 DB::table('favorite_church')->delete();
+    	 DB::table('favorite_churches')->delete();
          $imax = User::count();
          $nmax = Church::count();
          $faker = \Faker\Factory::create();
