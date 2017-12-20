@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Schedule_category;
 
 class Schedule_categoryController extends Controller
 {
     public function index()
     {
-        return Schedule::all();
+        return Schedule_category::all();
     }
 
     public function show(Schedule_category $schedule_category)

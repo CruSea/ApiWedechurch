@@ -1,19 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
-
-
-
-public function boot()
-{
-    Schema::defaultStringLength(191);
-}
-
     /**
      * Run the migrations.
      *
@@ -21,7 +12,6 @@ public function boot()
      */
     public function up()
     {
-        $this->boot();
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_name')->unique();
@@ -48,6 +38,6 @@ public function boot()
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::drop('users');
     }
 }

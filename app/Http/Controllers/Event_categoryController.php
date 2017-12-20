@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Event_category;
 
 class Event_categoryController extends Controller
 {
-   public function index()
+    public function index()
     {
         return Event_category::all();
     }
@@ -38,5 +40,3 @@ class Event_categoryController extends Controller
         return response()->json(null, 204);
     }
 }
-
- 

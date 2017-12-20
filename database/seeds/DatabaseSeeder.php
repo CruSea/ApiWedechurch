@@ -10,18 +10,13 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
-    	$this->call(RoleTableSeeder::class);
-    	$this->call(DenominationTableSeeder::class);
-    	$this->call(Event_categoryTableSeeder::class);
-    	$this->call(Schedule_categoryTableSeeder::class);
-    	$this->call(ChurchesTableSeeder::class);
-    	$this->call(EventsTableSeeder::class);
-    	$this->call(SchedulesTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
-        $this->call(Favorite_churchSeeder::class);
-         $this->call(Favorite_eventSeeder::class);
-       
+    {
+        $this->call(DenominationSeeder::class);
+        $this->call(ChurchSeeder::class);
+        $this->call(Event_categorySeeder::class);
+        $this->call(EventSeeder::class);
+        $this->call(Schedule_categorySeeder::class);
+        $this->call(ScheduleSeeder::class);
+        $this->call(userSeeder::class);
     }
 }
-

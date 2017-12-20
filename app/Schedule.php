@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     protected $fillable = ['name','redundancy','startDate','endDate'];
-
     // each church has many events
     public function schedule_church() {
         return $this->hasOne(Church::class);

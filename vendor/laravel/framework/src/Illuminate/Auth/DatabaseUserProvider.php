@@ -68,10 +68,12 @@ class DatabaseUserProvider implements UserProvider
      */
     public function retrieveByToken($identifier, $token)
     {
-        $user = $this->conn->table($this->table)->find($identifier);
+        $user = $this->conn->table($this->table)
+            ->where('id', $identifier)
+            ->where('remember_token', $token)
+            ->first();
 
-        return $user && $user->remember_token && hash_equals($user->remember_token, $token)
-                    ? $this->getGenericUser($user) : null;
+        return $this->getGenericUser($user);
     }
 
     /**
@@ -123,7 +125,7 @@ class DatabaseUserProvider implements UserProvider
      */
     protected function getGenericUser($user)
     {
-        if (! is_null($user)) {
+        if ($user !== null) {
             return new GenericUser((array) $user);
         }
     }
@@ -137,8 +139,8 @@ class DatabaseUserProvider implements UserProvider
      */
     public function validateCredentials(UserContract $user, array $credentials)
     {
-        return $this->hasher->check(
-            $credentials['password'], $user->getAuthPassword()
-        );
+        $plain = $credentials['password'];
+
+        return $this->hasher->check($plain, $user->getAuthPassword());
     }
 }
