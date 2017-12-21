@@ -13,7 +13,7 @@ class APIController extends Controller
     	$input = $request->all();
     	$input['password'] = Hash::make($input['password']);
     	User::create($input);
-        return response()->json(['result'=>true]);
+        return response()->json(['result'=>$input]);
     }
     
 
