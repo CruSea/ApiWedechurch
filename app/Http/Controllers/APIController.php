@@ -18,7 +18,7 @@ class APIController extends Controller
     
 
     public function login(Request $request)
-    {
+    {  try{
     	$input = $request->all();
     	if (!$token = JWTAuth::attempt($input)) {
             return response()->json(['result' => 'wrong email or password.']);
@@ -26,6 +26,8 @@ class APIController extends Controller
             $user = JWTAuth::toUser($token);
         	return response()->json(['result' => $user,
                                      'token' => $token]);
+            }catch (/Execption $e)
+      return $e ->getMessage();
     }
     
 
