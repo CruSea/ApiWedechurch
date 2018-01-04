@@ -62,7 +62,9 @@ class AuthController extends Controller
      * @return User
      */
     protected function create(array $data)
-    {
+    {   
+        try
+        {
         return User::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -74,5 +76,9 @@ class AuthController extends Controller
             'phone' => $data['phone']
            
         ]);
+    }catch (\Exception $e){
+        return $e->getMessage();
+    }
+
     }
 }
