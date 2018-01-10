@@ -34,9 +34,9 @@ Route::post('schedules', 'ScheduleController@store');
 Route::put('schedules/{schedule}', 'ScheduleController@update');
 Route::delete('schedules/{schedule}', 'ScheduleController@delete');
 
-Route::post('denominations', 'DenominationContoller@store');
-Route::put('denominations/{denomination}', 'DenominationContoller@update');
-Route::delete('denominations/{denomination}','DenominationContoller@delete');
+Route::post('denominations', 'DenominationController@store');
+Route::put('denominations/{denomination}', 'DenominationController@update');
+Route::delete('denominations/{denomination}','DenominationController@delete');
 
 // Route::post('favorite_churches', 'Favorite_churchController@store');
 // Route::put('favorite_churches/{favorite_church}', 'Favorite_churchController@update');
