@@ -10,15 +10,13 @@ class APIController extends Controller
 	
 
     public function register(Request $request)
-    {   try {     
-    	$input = $request->all();
-    	$input['password'] = Hash::make($input['password']);
-    	User::create($input);
+    {        
+    	// $input = $request->all();
+    	// $input['password'] = Hash::make($input['password']);
+    	// User::create($input);
         return response()->json(['result'=>$input]);
-    }catch (Exception $e)
-    {
-        return $e->getMessage();
-    }
+
+    
     }
     
 
