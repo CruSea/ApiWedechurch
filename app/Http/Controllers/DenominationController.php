@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Denomination;
 
-class DenominationContoller extends Controller
+class DenominationController extends Controller
 {
     public function index()
     {
