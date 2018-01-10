@@ -14,15 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::post('register', 'APIController@register');
 Route::group(['middleware' => ['api','cors'],'prefix' => 'api'], function () {
-    Route::post('register', 'APIController@register');
+    
     Route::post('login', 'APIController@login');
     Route::group(['middleware' => 'jwt-auth'], function () {
     	Route::get('get_user_details', 'APIController@get_user_details');
     });
 
-    Route::post('churches', 'ChurchController@store');
+Route::post('churches', 'ChurchController@store');
 Route::put('churches/{church}', 'ChurchController@update');
 Route::delete('churches/{church}', 'ChurchController@delete');
 
