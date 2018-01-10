@@ -10,7 +10,8 @@ class APIController extends Controller
 	
 
     public function register(Request $request)
-    {        
+    {     
+        print 'heey';   
     	 $input = $request->all();
     	// $input['password'] = Hash::make($input['password']);
     	// User::create($input);
