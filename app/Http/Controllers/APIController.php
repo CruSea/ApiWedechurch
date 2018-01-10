@@ -4,21 +4,26 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use JWTAuth;
+use Exception;
 class APIController extends Controller
 {
 	
 
     public function register(Request $request)
-    {        
+    {   try {     
     	$input = $request->all();
     	$input['password'] = Hash::make($input['password']);
     	User::create($input);
         return response()->json(['result'=>$input]);
+    }catch (Exception $e)
+    {
+        return $e->getMessage();
+    }
     }
     
 
     public function login(Request $request)
-    {  try{
+    { 
     	$input = $request->all();
     	if (!$token = JWTAuth::attempt($input)) {
             return response()->json(['result' => 'wrong email or password.']);
@@ -26,9 +31,9 @@ class APIController extends Controller
             $user = JWTAuth::toUser($token);
         	return response()->json(['result' => $user,
                                      'token' => $token]);
-            }catch (/Execption $e)
-      return $e ->getMessage();
+            
     }
+
     
 
     public function get_user_details(Request $request)
