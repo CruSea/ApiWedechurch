@@ -34,17 +34,17 @@ Route::post('schedules', 'ScheduleController@store');
 Route::put('schedules/{schedule}', 'ScheduleController@update');
 Route::delete('schedules/{schedule}', 'ScheduleController@delete');
 
-Route::post('denominations', 'DenominationController@store');
-Route::put('denominations/{denomination}', 'DenominationController@update');
-Route::delete('denominations/{denomination}','DenominationController@delete');
+Route::post('denominations', 'DenominationContoller@store');
+Route::put('denominations/{denomination}', 'DenominationContoller@update');
+Route::delete('denominations/{denomination}','DenominationContoller@delete');
 
-Route::post('favorite_churches', 'Favorite_churchController@store');
-Route::put('favorite_churches/{favorite_church}', 'Favorite_churchController@update');
-Route::delete('favorite_churches/{favorite_church}','Favorite_churchController@delete');
+// Route::post('favorite_churches', 'Favorite_churchController@store');
+// Route::put('favorite_churches/{favorite_church}', 'Favorite_churchController@update');
+// Route::delete('favorite_churches/{favorite_church}','Favorite_churchController@delete');
 
-Route::post('favorite_events', 'Favorite_eventController@store');
-Route::put('favorite_events/{favorite_event}', 'Favorite_eventController@update');
-Route::delete('favorite_events/{favorite_event}','Favorite_eventController@delete');
+// Route::post('favorite_events', 'Favorite_eventController@store');
+// Route::put('favorite_events/{favorite_event}', 'Favorite_eventController@update');
+// Route::delete('favorite_events/{favorite_event}','Favorite_eventController@delete');
 
 Route::post('schedules_category', 'Schedule_categoryController@store');
 Route::put('schedules_category/{schedules_category}', 'Schedule_categoryController@update');
@@ -65,13 +65,13 @@ Route::get('schedules', 'ScheduleController@index');
 Route::get('schedules/{schedule}', 'ScheduleController@show');
 
 Route::get('denominations', 'DenominationContoller@index');
-Route::get('denominations/{denomination}', 'DenominationController@show');
+Route::get('denominations/{denomination}', 'DenominationContoller@show');
 
-Route::get('favorite_churches', 'Favorite_churchController@index');
-Route::get('favorite_churches/{favorite_church}', 'Favorite_churchController@show');
+// Route::get('favorite_churches', 'Favorite_churchController@index');
+// Route::get('favorite_churches/{favorite_church}', 'Favorite_churchController@show');
 
-Route::get('favorite_events', 'Favorite_eventController@index');
-Route::get('favorite_events/{favorite_event}', 'Favorite_eventController@show');
+// Route::get('favorite_events', 'Favorite_eventController@index');
+// Route::get('favorite_events/{favorite_event}', 'Favorite_eventController@show');
 
 Route::get('schedules_category', 'Schedule_categoryController@index');
 Route::get('schedules_category/{schedules_category}', 'Schedule_categoryController@show');
