@@ -64,7 +64,7 @@ Route::get('events/{event}', 'EventController@show');
 Route::get('schedules', 'ScheduleController@index');
 Route::get('schedules/{schedule}', 'ScheduleController@show');
 
-Route::get('denominations', 'DenominationController@index');
+Route::get('denominations', 'DenominationContoller@index');
 Route::get('denominations/{denomination}', 'DenominationController@show');
 
 Route::get('favorite_churches', 'Favorite_churchController@index');
