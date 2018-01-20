@@ -13,8 +13,8 @@ class APIController extends Controller
     {     
         print 'heey';   
     	 $input = $request->all();
-    	// $input['password'] = Hash::make($input['password']);
-    	// User::create($input);
+    	 $input['password'] = Hash::make($input['password']);
+    	 User::create($input);
         return response()->json(['result'=>$input]);
     }
     
